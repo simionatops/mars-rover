@@ -8,5 +8,5 @@ Running
 -------
 
 `mvn clean package -Pdev`  
-`mvn jetty:run -Pdev`
+`mvn jetty:run -Pdev`  
 `localhost:8081`
