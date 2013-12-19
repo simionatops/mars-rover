@@ -1,0 +1,30 @@
+<configuration scan="${logs.logback.scan}" scanPeriod="${logs.logback.scanPeriod}">
+
+	<appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{dd/MM/yyyy HH:mm:ss.SSS} %-5p [%t] [${project.version}] %C - %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logs.path}/rover.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>rover.%d{yyyy-MM-dd}.log</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{dd/MM/yyyy HH:mm:ss.SSS} %-5p [%t] [${project.version}] %C - %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="br.com.zup.rover" level="DEBUG" />
+	
+	<logger name="org.springframework" level="WARN" />
+	
+	<logger name="org.springframework.web" level="DEBUG" />
+
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="fileAppender" />
+	</root>
+</configuration>

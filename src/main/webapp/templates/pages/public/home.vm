@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8" />
+<title>Mars Rovers - ZUP</title>
+</head>
+
+<body>
+
+	<section>
+		<div>
+			<h1>Mars Rovers</h1>
+			
+			#if($!message)
+	          	<b>$!message</b> <br /><br />
+            #end 
+
+			<form name="coordinate" action="/coordenada.html" method="post" novalidate="novalidate">
+
+				<fieldset>
+					<legend>Platô</legend>
+					<label>Posição X: </label> 
+						<input type="text" name="positionX" maxlength="2" size="2" />
+						
+					<label>Posição Y: </label>
+						<input type="text" name="positionY" maxlength="2" size="2" />					
+				</fieldset><br/>
+
+				<fieldset>
+					<legend>Rover</legend>
+					
+					<label>Coorde. Inicial: </label> 
+						<input type="text" name="coordinates" maxlength="5" />
+						Ex:3 4 S<br /><br />	
+					<label>Movimentação: </label>
+						<input type="text" name="direction" maxlength="10" />
+						Ex:LMLMRM<br /><br />
+				</fieldset><br />
+				
+				<input type="submit" value="Inserir" />
+			</form><br />
+			
+			<hr /><br />
+			
+			<div>			
+			OUTPUT: <br />
+			
+			#if($!coordinates)
+	          	$!coordinates.positionX $!coordinates.positionY $!coordinates.directionType
+            #end
+			</div>
+
+		</div>
+	</section>
+
+</body>
+</html>
